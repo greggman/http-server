@@ -168,6 +168,9 @@ vows.describe('http-server').addBatch({
       server.listen(8084);
       this.callback(null, server);
     },
+    teardown: function () {
+      throw new Error('foo');
+    },
     'and a request accepting only gzip is made': {
       topic: function () {
         request({
